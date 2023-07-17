@@ -32,3 +32,13 @@ export async function deleteCartList(req, res) {
 		res.status(500).send(err.message);
 	}
 }
+
+export async function deleteItem(req, res) {
+	const { id } = req.params;
+	try {
+		let teste = await db.collection("cart").deleteOne({ _id: new ObjectId(id) });
+		console.log(teste);
+	} catch (err) {
+		res.status(500).send(err.message);
+	}
+}
