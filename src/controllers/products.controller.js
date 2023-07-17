@@ -14,13 +14,13 @@ export async function getProducts(req, res) {
 	}
 }
 
-export async function addToCart(req, res) {
-	const { id, name, price, image, quantity } = req.body;
+export async function addToCart(req,res) {
+    const { id, name, price, image, quantity } = req.body;
 
-	try {
-		await db.collection("cart").insertOne({ id, name, price, image, quantity });
-		res.sendStatus(201);
-	} catch (err) {
-		return res.status(500).send(err.message);
-	}
+    try {
+        await db.collection("cart").insertOne({ id, name, price, image, quantity});
+        res.sendStatus(201);
+    } catch (err) {
+        return res.status(500).send(err.message);
+    }
 }
